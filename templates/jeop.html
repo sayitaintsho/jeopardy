@@ -11,10 +11,10 @@
     <title>Starter Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap-theme.css') }}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -33,24 +33,17 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Category.</h1>
-        <p class="lead">This is a clue.</p>
+        <h1>{{ category }}</h1>
+        <p class="lead">{{ clue }}</p>
       </div>
 
     </div><!-- /.container -->
 
-       <div class="container">
-
-    <input type="text" class="form-control" placeholder="Sample answer">
-
-
-
-    <!-- Standard button -->
-<button type="button" class="btn btn-default">Submit</button>
+    <div class="container">
+      <input type="text" class="form-control" placeholder="Sample answer">
+      <!-- Standard button -->
+      <button type="button" class="btn btn-default">Submit</button>
     </div><!-- /.container -->
-
-
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

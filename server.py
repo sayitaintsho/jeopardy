@@ -1,4 +1,6 @@
 from flask import Flask
+from flask import render_template
+
 import sqlite3
 
 app = Flask(__name__)
@@ -20,9 +22,9 @@ def get_random_clue():
     return d.fetchone()
 
 @app.route("/")
-def hello():
+def index():
     clue = get_random_clue()
-    return "<h1>Category is {}</h1><h2>Clue is {}<br/><div style='display:none'>{}</div>".format(clue[5], clue[6], clue[7])
+    return render_template('jeop.html', category=clue[5], clue=clue[6], answer=clue[7])
 
 if __name__ == "__main__":
     app.run(debug=True)
