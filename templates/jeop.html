@@ -8,17 +8,13 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Jeopardy</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="{{ url_for('static', filename='bootstrap/css/bootstrap-theme.css') }}" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -28,29 +24,33 @@
   </head>
 
   <body>
-
-
     <div class="container">
-
       <div class="starter-template">
         <h1>{{ category }}</h1>
         <p class="lead">{{ clue }}</p>
+        <p class="lead" id="answer" style="display:none">
+          {{ answer }}
+        </p>
       </div>
-
     </div><!-- /.container -->
 
     <div class="container">
-      <input type="text" class="form-control" placeholder="Sample answer">
+      <!-- <input type="text" class="form-control" placeholder="Answer here"> -->
       <!-- Standard button -->
-      <button type="button" class="btn btn-default">Submit</button>
+      <a href="#" type="button" class="btn btn-default" id="button-submit">Show answer</a>
+      <a href="/" type="button" class="btn btn-default">Next</a>
     </div><!-- /.container -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    <script>
+      $('#button-submit').click(function(){
+        $('#button-submit').hide();
+        $('#answer').show();
+      });
+    </script>
   </body>
 </html>
